@@ -1,4 +1,4 @@
-
+<?  include 'art-data.php';  ?>
 
 <footer>
    <div class="container">
@@ -18,33 +18,34 @@
          </div>
          <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-shopping-cart"></span> Just Ordered</h4>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/099110.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">The Veiled Woman</a></p>
-                <em>5 minutes ago</em>
-              </div>
-            </div>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/116010.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">Artist Holding a Thistle</a></p>
-                <em>11 minutes ago</em>
-              </div>
-            </div>   
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" src="images/art/tiny/113010.jpg" alt="...">
-              </a>
-              <div class="media-body">
-                <p class="media-heading similarTitle"><a href="#">Self-portrait in a Straw Hat</a></p>
-                <em>23 minutes ago</em>
-              </div>
-            </div>  
+
+<?
+            foreach ($recentOrders as $key => $value)
+            {
+               foreach ($recentOrders[$key] as $key2 => $value2)
+               {
+                  Switch  ($key2)
+                  {
+                     Case "filename" :
+                        echo  '<div class="media">';
+                        echo  '  <a class="pull-left" href="#">';
+                        echo  '  <img class="media-object" src="images/art/tiny/' . $value2 . ' " alt="...">';
+                        echo  '  </a>';
+                        break;
+                     Case "title" :
+                        echo  '  <div class="media-body">';
+                        echo  '  <p class="media-heading similarTitle"><a href="#">' . $value2 . '</a></p>';
+                        break;
+                     Case "time" :
+                        echo  '    <em>' . $value2 . ' minutes ago</em>';
+                        echo  '  </div>';
+                        echo  '</div>';
+                        break;
+                  };
+               }
+            }
+?>
+
          </div>       
          <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-envelope"></span> Contact us</h4>

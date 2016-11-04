@@ -5,7 +5,7 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Chapter 9</title>
+ <title>Chapter 9.1 process</title>
 
  <!-- Bootstrap core CSS -->
  <link href="bootstrap3_defaultTheme/dist/css/bootstrap.css" rel="stylesheet">
@@ -22,13 +22,9 @@
 
 <body>
 
-
-
 <?php include 'art-header.inc.php' ?>
 
 <div class="container">
-
-
    
    <div class="row">
       <div class="col-md-3">
@@ -38,7 +34,31 @@
            <div class="panel-body">
 
            <ul class="nav nav-pills nav-stacked">
-               <li>menu items here</li>
+
+<?            
+                $navMenu = array();
+                $navMenu [] = "Login";
+                $navMenu [] = "Register";
+                $navMenu [] = "Password Recovery";
+                $navMenu [] = "My Account";
+                $navMenu [] = "Returns";
+                $navMenu [] = "Order History";
+
+                $selectMenu = 1;
+
+                foreach ($navMenu as $key => $value)
+                {
+                  if ( $selectMenu == $key )
+                  {
+                    echo '<li class="active"><a href="#">' . $navMenu[$key] . '</a></li>';
+                  }
+                  else
+                  {
+                    echo '<li><a href="#">' . $navMenu[$key] . '</a></li>';
+                  }
+                }          
+?>
+
            </ul>  
            
            
@@ -50,11 +70,19 @@
       
          <div class="page-header">
             <h2>My Account</h2>
-            <p>Welcome </p>   
+            <? echo '<p>Welcome ' . $_POST["first"] . ' ' . $_POST["last"] . '</p>'; ?>
+
          </div>
          
          <div class="well">
-            <p>passed form data here</p>     
+
+<?
+                foreach ($_POST as $key => $value)
+                {
+                  echo '<p>' . $key . ": " . $_POST[$key] . '</p>';
+                }
+?>
+
          </div>
       </div>  
    </div> 

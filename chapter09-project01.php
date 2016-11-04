@@ -5,7 +5,7 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Chapter 9</title>
+ <title>Chapter 9.1 form</title>
 
  <!-- Bootstrap core CSS -->
  <link href="bootstrap3_defaultTheme/dist/css/bootstrap.css" rel="stylesheet">
@@ -51,45 +51,33 @@
       <div class="col-md-9">
       
       
-<form role="form" class="form-horizontal" >
+<form role="form" class="form-horizontal"  action="art-form-process.php" method ="Post">
    <div class="page-header">
       <h2>Register Account</h2>
       <p>If you already have an account with us, please login at the login page.</p>   
    </div>
 
 
-     <div class="form-group">
-       <label for="first" class="col-md-3 control-label">First Name</label>
-       <div class="col-md-9">
-       <input type="text" class="form-control" name="first" >
-       </div>
-     </div>
-     <div class="form-group">
-       <label for="last" class="col-md-3 control-label">Last Name</label>
-       <div class="col-md-9">
-       <input type="text" class="form-control" name="last" >
-       </div>
-     </div>
-     <div class="form-group">
-       <label for="email" class="col-md-3 control-label">Email</label>
-       <div class="col-md-9">
-       <input type="email" class="form-control" name="email">
-       </div>
-     </div>        
+<?
 
+    function GetData ( $label, $labelName, $type )
+    {
+      echo  '   <div class="form-group">';
+      echo  '     <label for="' . $label . '" class="col-md-3 control-label">' . $labelName . '</label>';
+      echo  '     <div class="col-md-9">';
+      echo  '       <input type="' . $type . '" class="form-control" name="' . $label . '" >';
+      echo  '     </div>';
+      echo  '   </div>';
+    }
 
-     <div class="form-group">
-       <label for="password1" class="col-md-3 control-label">Password</label>
-       <div class="col-md-9">
-       <input type="password" class="form-control" name="password1">
-       </div>
-     </div>
-     <div class="form-group">
-       <label for="password2" class="col-md-3 control-label">Password Confirm</label>
-       <div class="col-md-9">
-       <input type="password" class="form-control" name="password2">
-       </div>
-     </div>
+    GetData ('first', 'First Name', 'text' );
+    GetData ('last', 'Last Name', 'text' );
+    GetData ('email', 'Email', 'email' );
+    GetData ('password1', 'Password', 'password' );
+    GetData ('password2', 'Password Confirm', 'password' );
+
+?>
+
   <div class="form-group">
     <div class="col-md-offset-3 col-md-9">
       <div class="checkbox">

@@ -74,13 +74,14 @@
                <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Specials <b class="caret"></b></a>
                  <ul class="dropdown-menu">
-                   <?php
+
+<?php
                      for ($i=0; $i < 5; $i++) {
                         $extra = $i + 1;
                         echo '<li><a href="#">Special ' . $extra . '</a></li>';
                      }
+?>
 
-                   ?>
                  </ul>
                </li>
              </ul>              
