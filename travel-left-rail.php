@@ -12,29 +12,35 @@
              </form>
            </div>
          </div>  <!-- end search panel -->       
-      
-         <div class="panel panel-info">
-           <div class="panel-heading">Continents</div>
-           <ul class="list-group">               
-              <li class="list-group-item"><a href="#">Asia</a></li>
-              <li class="list-group-item"><a href="#">Africa</a></li>
-              <li class="list-group-item"><a href="#">Europe</a></li>
-              <li class="list-group-item"><a href="#">North America</a></li>
-              <li class="list-group-item"><a href="#">South America</a></li>    
-           </ul>
-         </div>  <!-- end continents panel -->  
-         <div class="panel panel-info">
-           <div class="panel-heading">Popular Countries</div>
-           <ul class="list-group">               
-              <li class="list-group-item"><a href="#">Bahamas</a></li>
-              <li class="list-group-item active">Canada</li>
-              <li class="list-group-item"><a href="#">Germany</a></li>
-              <li class="list-group-item"><a href="#">Ghana</a></li>
-              <li class="list-group-item"><a href="#">Greece</a></li>
-              <li class="list-group-item"><a href="#">Hungary</a></li>
-              <li class="list-group-item"><a href="#">Italy</a></li>
-              <li class="list-group-item"><a href="#">Spain</a></li>
-              <li class="list-group-item"><a href="#">United Kingdom</a></li>
-              <li class="list-group-item"><a href="#">United States</a></li>    
-           </ul>
-         </div>  <!-- end countries panel -->    
+
+<?
+        asort($continents);
+        echo '<div class="panel panel-info">';
+          echo '<div class="panel-heading">Continents</div>';
+          echo '<ul class="list-group">';
+            foreach ($continents as $value)
+            {
+              echo '<li class="list-group-item"><a href="#">' . $value . '</a></li>';
+            }
+          echo '</ul>';
+          echo'</div>'; // end continents panel
+
+        asort ($countries);
+        echo '<div class="panel panel-info">';
+          echo '<div class="panel-heading">Popular Countries</div>';
+          echo '<ul class="list-group">';
+            foreach ($countries as $key => $value)
+            {
+              if ($key == $selectMenu)
+              {
+                echo '<li class="list-group-item active"><a href="#">' . $value . '</a></li>';
+              }
+              else
+              {
+                echo '<li class="list-group-item"><a href="#">' . $value . '</a></li>';
+              }
+            }
+          echo '</ul>';
+          echo'</div>'; // end countries panel
+
+?>

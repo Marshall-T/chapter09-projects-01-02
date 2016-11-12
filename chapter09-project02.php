@@ -1,10 +1,10 @@
 <?php
 
 include 'travel-data.php';   
-
+/*
 asort($continents);
 asort($countries);
-
+*/
 
 ?>
 
@@ -16,7 +16,7 @@ asort($countries);
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="">
    <meta name="author" content="">
-   <title>Travel Template</title>
+   <title>Travel Template 9.2</title>
 
    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
@@ -59,8 +59,17 @@ asort($countries);
          <!-- start post summaries -->
          <div class="well">
             <div class="row">
-                replace this with loop outputting col-md-3 div containing photo
-
+<!--                replace this with loop outputting col-md-3 div containing photo -->
+<?
+               echo '<div class="col-md-13">';
+                  foreach ($images as $key => $value)
+                  {
+                     echo '<a href="http://localhost/chapter09-work/travel-image.php? id=' . $key . '">
+                       <img src="images/travel/square/' . $images[$key]["path"] . '"></a>';
+                  }
+                echo '</div>';
+               
+?>
             </div>
          </div>
 

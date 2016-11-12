@@ -42,27 +42,29 @@ include 'travel-data.php';
       <div class="col-md-3">  <!-- start left navigation rail column -->
          <?php include 'travel-left-rail.php'; ?>
       </div>  <!-- end left navigation rail --> 
-      
+
+           <?php $id = $_GET["id"]; ?>
+           
       <div class="col-md-9">  <!-- start main content column -->
          <ol class="breadcrumb">
            <li><a href="#">Home</a></li>
-           <li><a href="Chapter09-project02.php">Favorites</a></li>
-           <li class="active">title here</li>
+           <li><a href="#">Favorites</a></li>
+           <?php echo '<li><a href="#">' . $images[$id]["title"] . '</li>';  ?>
          </ol> 
 
-         <h1><?php echo $image['title']; ?></h1>
+         <h1><?php echo $images[$id]["title"]; ?></h1>
          <div class="row">
             <div class="col-md-8">
-                       
-               image here
-               
+<?
+            echo '<img src="http://localhost/chapter09-work/images/travel/medium/' . $images[$id]["path"] . '">';
+?>
             </div>
             <div class="col-md-4">
                <div class="panel panel-primary">
                   <div class="panel-body">
-                      <p>By <a href="#">user here</a></p>
-                  <p>Taken in <a href="#">country here</a></p>
-                  <p>description here</p>
+                     <? echo '<p>By <a href="#">' . $images[$id]["user"] . '</a></p>';
+                  echo '<p>Taken in <a href="#">' . $images[$id]["country"] . '</a></p>';
+                  echo '<p>' . $images[$id]["description"] . '</p>'; ?>
                    </div>
                </div>
             </div>
